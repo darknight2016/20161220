@@ -10,6 +10,7 @@ window.onload = function(){
 	console.log(HEIGHT);
 
 
+
 	// 函数声明
 	// 雪花构造函数
 	var Snow = function(){

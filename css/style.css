@@ -89,10 +89,12 @@
 	border-radius: 100%;
 }
 body{
-	overflow: hidden;
+	/*overflow: hidden;*/
 	background-color: rgb(234,80,94);
 }
-
+html{
+	overflow: hidden;
+}
 /*遮罩样式*/
 #mask{
 	position: absolute;
