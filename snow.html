@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>snow</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		body{
+			background: red;
+		}
+		/*渐变*/
+		div{
+			/*position: absolute;*/
+			width: 20px;
+			height: 20px;
+			background: -webkit-radial-gradient(center,circle closest-side,rgba(255,255,255,1),rgba(255,0,0,0));
+			border-radius: 100%;
+		}
+		body{
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		window.onload = function(){
+
+			// 变量声明
+			var div = document.getElementById('div');
+			var oSnows = [];
+			// var oBody = document.getElementsByTagName('body')[0];
+			var WIDTH = document.documentElement.clientWidth;
+			// console.log(WIDTH);
+			var HEIGHT = document.documentElement.clientHeight;
+			console.log(HEIGHT);
+
+
+
+			// 函数声明
+			// 雪花构造函数
+			var Snow = function(){
+				var snow = document.createElement('div');
+				document.getElementsByTagName('body')[0].appendChild(snow);
+				this.node = snow;
+				this.x = random(0,WIDTH);
+				this.y = 0;
+				this.r = random(0,20);
+				this.vx = random(-2,2);
+				this.vy = random(3,10);
+				// this.vr = 0.1;
+			};
+
+			// 添加雪花函数
+			var addSnow = function(){
+				var _snow = new Snow();
+				oSnows.push(_snow);
+			};
+
+			// 随机函数
+			var random = function(a,b){
+				return a + Math.random() * (b - a);
+			};
+
+			// 渲染雪花函数
+			var renderSnow = function(obj){
+				var node = obj.node;
+				with(node.style){
+					position = 'absolute';
+					left = obj.x + 'px';
+					top = obj.y + 'px';
+					width = obj.r + 'px';
+					height = obj.r + 'px';
+				}
+				// console.log(node);
+			}
+
+			// 更新雪花函数
+			var upDateSnow = function(){
+				var n = 0;
+				for(var j = 0;j < oSnows.length;j++){
+					if(oSnows[j].y < HEIGHT){
+						oSnows[n] = oSnows[j];
+						oSnows[n].x += oSnows[n].vx;
+						oSnows[n].y += oSnows[n].vy;
+						oSnows[n].r += 0.1;
+						n++;
+					}
+				}
+				console.log(n);
+				oSnows.length = n;
+			};
+
+
+			console.log(random(1,10));
+			var t = setInterval(function(){
+				addSnow();
+				for(var i = 0;i < oSnows.length;i++){
+					renderSnow(oSnows[i]);
+				}
+				
+				upDateSnow();
+			},100)
+		};
+	</script>
+</body>
+</html>

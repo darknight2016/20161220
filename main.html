@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>main</title>
+
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 900px;
+			margin: 0 auto;
+		}
+		.header{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+		}
+		#menu{
+			display: flex;
+		}
+		#menu li{
+			display: flex;
+			width: 90px;
+			height: 90px;
+			border-radius: 100%;
+			/*display: inline-block;*/
+			background-color: red;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.main{
+			position: relative;
+			width: 900px;
+			height: 400px;
+			overflow: hidden;
+			background-color: blue;
+		}
+		.main > div{
+			position: absolute;
+		}
+		.promise{
+			left: -1000px;
+			display: flex;
+			justify-content: space-between;
+		}
+		.promise-left{
+			margin: 10px;
+			padding: 20px;
+			width: 390px;
+			background-color: #e35666;
+		}
+		.promise-right{
+			margin: 10px;
+			padding: 20px;
+			width: 390px;
+			background-color: #e35666;
+		}
+
+		/*memery*/
+		.memery{
+			left: -1000px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 860px; 
+			height: 100px;
+			margin: 20px;
+			background-color: green;
+		}
+		/*bless*/
+		.bless{
+			left: -1000px;
+			width: 860px;
+			margin: 20px;
+			background-color: yellow;
+		}
+	</style>
+
+
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="header-logo"><a href="#"><img src="img/happybirthday.jpg" alt="生日快乐"></a></div>
+			<div class="header-nav">
+				<ul id="menu">
+					<li><a href="#">宣言</a></li>
+					<li><a href="#">记忆</a></li>
+					<li><a href="#">祝福</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="main">
+			<div class="promise" id="promise">
+				<div class="promise-left">
+					<h2>我们已经在一起。。。</h2>
+					<div id="count"><span id="day"></span>天<span id="hour"></span>小时<span id="minutes"></span>分钟<span id="second"></span>秒</div>
+					<div class="pic"><img src="" alt=""></div>
+				</div>
+				<div class="promise-right">
+					<h2>雷琴</h2>
+					<p>自从遇见你，我就知道有种病叫相思，你那美丽的容颜，好像洁白的雪莲，你那出尘的风姿，好像晶莹的灵芝，让我茶不思、饭不想，每当夜深人静，无穷的相思涌上心头，我真是辗转反侧、难以入眠，我知道我得了相思病，但又无法忘记你，我知道我得了妄想症，但却希望拥有你。我爱你，希望能守护你永远！能够遇见你，对我来说是最大的幸福。有了你，我的生活变的无限宽广，有了你，世界变得如此迷人。你是世界，世界是你。我愿意用自己的心，好好的陪着你，爱着你。陪你到你想去的地方，用心走完我们人生的余下的旅程。在未来的日子里，也许什么都无法确定，但唯一可以确定的是，我爱的人是你，无论现在还是将来，我想我这里都会是你最温暖的港湾，都是为你遮风避雨的城墙。无论狂风，无论暴雨。我都会陪在你的身旁，让你不会感到丝毫的担心和惶恐。我会珍惜和你在一起的每一刻，每一分，每一秒。谁叫你是我最爱的人，为了你，我愿用自己的双手为你撑起一片艳阳！</p>
+				</div>
+			</div>
+			<div class="memery" id="memery">
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+			</div>
+			<div class="bless" id="bless">
+				<h2>祝福</h2>
+				<p>祝福</p>
+			</div>
+		</div>
+	</div>
+	
+	<audio src="music/happybirthday.mp3" autoplay="" loop=""></audio>
+
+
+	<script type="text/javascript">
+		window.onload = function(){
+			var oCount = document.getElementById('count');
+			var aSpan = oCount.getElementsByTagName('span');
+			var oldDate = new Date(2014,7,9,18,0,0,0);
+			// var newDate = new Date();
+			// console.log(newDate - oldDate);
+			var writeTime = function(){
+				var _now,
+				_ms,
+				_rest,
+				_time = [];
+
+				_now = new Date();
+				_ms = _now - oldDate;
+				_time.push(Math.floor(_ms / (1000 * 60 * 60 * 24)));
+				_rest = _ms % (1000 * 60 * 60 * 24);
+				_time.push(Math.floor(_rest / (1000 * 60 * 60)));
+				_rest = _rest % (1000 * 60 * 60);
+				_time.push(Math.floor(_rest / (1000 * 60)));
+				_rest = _rest % (1000 * 60);
+				_time.push(Math.floor(_rest / 1000));
+				
+				for(var i = 0;i < aSpan.length;i++){
+					aSpan[i].innerHTML = _time[i];
+				}
+			};
+			var t = setInterval(writeTime,1000);
+
+			var slideIn = function(obj,callback,obj2){
+				obj.style.left = '-1000px';
+				var t = setInterval(function(){
+					if(parseInt(obj.style.left) != 0){
+						obj.style.left = parseInt(obj.style.left) + 100 + 'px';
+						console.log(parseInt(obj.style.left));
+					}else{
+						clearInterval(t);
+						callback && callback(obj2);
+					}
+				},30);
+			}
+
+			var slideOut = function(obj,callback,obj2){
+				obj.style.left = '0px';
+				console.log(obj.offsetLeft);
+				var t = setInterval(function(){
+					if(parseInt(obj.style.left) != 1000){
+						obj.style.left = parseInt(obj.style.left) + 100 + 'px';
+						console.log(parseInt(obj.style.left));
+					}else{
+						clearInterval(t);
+						callback && callback(obj2);
+					}
+				},30);
+
+			};
+			// slideIn(document.getElementById('promise'),slideOut,document.getElementById('promise'));
+
+			var oPromise = document.getElementById('promise');
+			var oMemery = document.getElementById('memery');
+			var oBless = document.getElementById('bless');
+			var objs = [oPromise,oMemery,oBless];
+			var aBtn = document.getElementById('menu').getElementsByTagName('li');
+			var nowObj = null;
+
+			slideOut(oMemery,slideIn,oPromise);
+			nowObj = oPromise;
+
+			for(var i = 0;i < aBtn.length;i++){
+				aBtn[i].index = i;
+				aBtn[i].onclick = function(){
+					var _i = this.index == (aBtn.length - 1) ? 0 : this.index + 1;
+					if(nowObj != objs[this.index]){
+						slideOut(nowObj,slideIn,objs[this.index]);
+						nowObj = objs[this.index];
+					}
+				}
+				console.log(aBtn.length);
+			}
+		};
+	</script>
+</body>
+</html>

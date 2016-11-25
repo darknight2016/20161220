@@ -1,0 +1,120 @@
+/*YZP CSS reset*/
+
+/*
+Global White Space Reset 全局重置
+*{
+	margin: 0;
+	padding: 0;
+}
+遍历所有节点，消耗配置
+理念：清除和重置密不可分
+特色：适应中文，基于主流浏览器
+*/
+
+@charset "utf-8";
+/*reset start*/
+/*清除内外边距*/
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,   /*structural elements 结构元素*/
+dl,dt,dd,ul,ol,li,                        /*list elements 列表元素*/
+pre,                                      /*text formatting elements 文本格式元素*/
+fieldset,legend,button,input,textarea,    /*form elements 表单元素*/
+th,td{        							  /*table elements 表格元素*/ 
+	margin: 0;
+	padding: 0;
+}                            
+/*设置默认字体*/
+body,
+button,input,select,textarea{
+	/*for ie*/
+	/*font: 12px/1 Tahoma,Helvetica,Arial,"宋体",sans-serif;*/
+	font: 12px/1 Tahoma,Helvetica,Arial,"\5b8b\4f53",sans-serif;/*用ascii字符表示，使得任何编码下都没有问题*/
+
+	/*font: 12px/1;*/
+	/*for short*/
+	/*font: 12px;*/
+	/*line-height: 1;*/
+}
+
+/*字体大小设定*/
+h1{
+	font-size: 18px;
+}
+h2{
+	font-size: 16px;
+}
+h3{
+	font-size: 14px;
+}
+h4,h5,h6{
+	font-size: 100%;
+}
+/*将斜体扶正*/
+address,cite,dfn,em,var{
+	font-style: normal;
+}
+/*统一等宽字体*/
+code,kbd,pre,samp,tt{
+	font-family: "Courier New",Courier,monospace;
+}
+/*小于12px中文很难阅读，让small正常化*/
+small{
+	font-size: 12px;
+}
+
+/*重置列表元素*/
+ul,ol{
+	list-style: none;
+}
+/*重置文本格式元素*/
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+abbr[title],acronym[title]{
+	/*注：1.IE6不支持abbr。2.这里用了属性选择器，IE6下无效*/
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+/*重置表单元素*/
+legend{
+	/*for IE6*/
+	color: #000;
+}
+fieldset,img{
+	/*img搭车，让链接里面的img无边框*/
+	border: none;
+}
+button,input,select,textarea{
+	/*使表单元素在IE下能继承字体大小*/
+	font-size: 100%;
+}
+
+/*重置表格元素*/
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*重置hr*/
+hr{
+	border: none;
+	height: 1px;
+}
+/*让非IE浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁*/
+html{
+	overflow-y: scroll;
+}
+
+/*消除链接轮廓线*/
+:focus{
+	outline: 0;
+}
+
+/*引用元素重置，效果暂时未知*/
+blockquote:before, blockquote:after,q:before, q:after {
+    content: "";
+}
+blockquote, q {
+    quotes: "" "";
+}
