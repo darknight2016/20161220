@@ -162,6 +162,15 @@ window.onload = function(){
 	// 这招控制
 	var oMask = document.getElementById('mask');
 	oMask.onclick = function(){
+		var that = this;
+		// var t = setInterval(function(){
+		// 	if(parseInt(that.style.padding) < WIDTH/2){
+		// 		that.style.padding = parseInt(that.style.padding) + 10 + 'px';
+		// 	}else{
+		// 		clearInterval(t);
+		// 		that.style.display = 'none';
+		// 	}
+		// },1000);
 		this.style.display = 'none';
 	};
 };

@@ -22,18 +22,28 @@
 	height: 90px;
 	border-radius: 100%;
 	/*display: inline-block;*/
-	background-color: red;
+	background-color: rgba(255,255,255,.5);
 	justify-content: center;
 	align-items: center;
 }
-
+#menu li a{
+	text-decoration: none;
+	color: #e35666;
+	font-size: 20px;
+	font-weight: bold;
+}
+#menu li:hover{
+	background-color: rgba(255,255,255,.8);
+	cursor: pointer;
+}
 /*主体样式*/
 .main{
 	position: relative;
 	width: 900px;
 	height: 400px;
 	overflow: hidden;
-	background-color: blue;
+	/*background-color: blue;*/
+	color: #fff;
 }
 .main > div{
 	position: absolute;
@@ -58,16 +68,23 @@
 	background-color: #e35666;
 }
 
+#count span{
+	color: #0f0;
+	font-size: 16px;
+	font-weight: bold;
+}
+
 /*回忆样式*/
 .memery{
 	left: -1000px;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 	width: 860px; 
-	height: 100px;
+	/*height: 100px;*/
 	margin: 20px;
-	background-color: green;
+	padding: 5px 0;
+	background-color: #fff;
 }
 
 
@@ -76,7 +93,7 @@
 	left: -1000px;
 	width: 860px;
 	margin: 20px;
-	background-color: yellow;
+	/*background-color: yellow;*/
 }
 
 
@@ -102,7 +119,8 @@ html{
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: red;
+	overflow: hidden;
+	background-color: #e35666;
 	display: flex;
 	justify-content: center;
 	align-items: center;
